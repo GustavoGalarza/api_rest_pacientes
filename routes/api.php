@@ -11,6 +11,12 @@ use App\Http\Controllers\AuthController;
 /*Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');*/
+Route::post('auth/register', [AuthController::class, 'create']);
+Route::post('auth/login', [AuthController::class, 'login']);
+
+
+
+Route::middleware(['auth:sanctum'])->group(function(){
 
 Route::resource('pacientes', PacientesController::class);
 Route::resource('medicos', MedicosController::class);
@@ -23,3 +29,8 @@ Route::get('medicosAll', [MedicosController::class, 'all']);
 
 Route::get('citasporpacientes', [CitasController::class, 'citasPorPacientes']);
 Route::get('citaspormedicos', [CitasController::class, 'citasPorMedicos']);
+
+Route::post('auth/logout', [AuthController::class, 'logout']);
+}); 
+
+
