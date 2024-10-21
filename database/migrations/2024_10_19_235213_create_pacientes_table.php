@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('email')->unique();
             $table->string('telefono');
-            $table->date('fecha_nacimiento');
+            $table->string('fecha_nacimiento');
             $table->timestamps();
         });
     }
